@@ -192,14 +192,30 @@ sudo apt-get install build-essential qt5-qmake qt5-default qttools5-dev-tools li
 
 <a name="fedora-other-deps" />
 #### Fedora:
+**Note ffmpeg-devel requires enabling / using rpmfusion-free repo (enable via  dnf config-manager).**
+
+*Valid Keys* 
+
+F22:  97F4D1C1  | 5065 885A 371C 6200 3ED7  AC4F 81C9 B423 97F4 D1C1
+
+F23:  E051B67E  | 1E0D 69F0 77CA 4960 C32C  17E2 5B03 78C0 E051 B67E
+
+**Note that sqlcipher is not included in Fedora.**
+
+*This means that you have to compile sqlcipher yourself, otherwise compiling qTox will fail.*
+
+*Go to [sqlcipher](#sqlcipher) section to compile it.
+
+
 **Note that sqlcipher is not included in Fedora(!).**
 
 **This means that you have to compile sqlcipher yourself, otherwise compiling qTox will fail.**
 ```bash
-sudo dnf groupinstall "Development Tools"  (can also use sudo dnf install @"Development Tools")
+sudo dnf install @"Development Tools" && \
+sudo dnf config-manager \
++--add-repo=download1.rpmfusion.org/free/fedora/rpmfusion-free-release-23.noarch.rpm && \
 sudo dnf install qt-devel qt-doc qt-creator qt5-qtsvg qt5-qtsvg-devel openal-soft-devel libXScrnSaver-devel qrencode-devel ffmpeg-devel qtsingleapplication qt5-linguist gtk2-devel
 ```
-
 **Go to [sqlcipher](#sqlcipher) section to compile it.**
 
 <a name="opensuse-other-deps" />
